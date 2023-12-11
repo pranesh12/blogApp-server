@@ -11,7 +11,7 @@ const router = express.Router();
 
 router
   .get("/", fetAllBlog)
-  .post("/createproduct", createBlog)
+  .post("/createblog", createBlog)
   .get("/:id", fetchBlogById)
   .put("/:id", updateBlog)
   .delete("/:id", deleteBlog);

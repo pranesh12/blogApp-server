@@ -7,11 +7,13 @@ const productSchema = new Schema({
   content: {
     type: String,
     required: [true, "Please a provide a content "],
-    minlength: [10, "Please provide a content least 10 characters "],
+  },
+  category: {
+    type: String,
+    required: true,
   },
   image: {
     type: String,
-    default: "default.jpg",
   },
   readtime: {
     type: Number,

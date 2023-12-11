@@ -21,13 +21,14 @@ exports.fetchBlogById = async (req, res) => {
 
 exports.createBlog = async (req, res) => {
   try {
-    const { author, title, content, image, readtime } = req.body;
+    const { author, title, content, image, category, readtime } = req.body;
 
     await Blog.create({
       author,
       title,
       content,
       image,
+      category,
       readtime,
     });
 

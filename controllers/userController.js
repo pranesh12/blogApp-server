@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 const bycrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const sekretKey = "whatever";
+const sekretKey = "diskodancer";
 
 exports.login = async (req, res) => {
   try {
@@ -23,7 +23,7 @@ exports.login = async (req, res) => {
       );
 
       const result = {
-        firstName: oldUser.name,
+        name: oldUser.name,
         email: oldUser.email,
         _id: oldUser._id,
         isAdmin: oldUser.isAdmin,
@@ -44,14 +44,12 @@ exports.register = async (req, res) => {
     if (!oldUser) {
       const hashPassword = await bycrypt.hash(password, 12);
       const newUesr = await User.create({
-        firstName,
-        lastName,
+        name,
         email,
         password: hashPassword,
       });
       const result = {
-        firstName: newUesr.firstName,
-        lastName: newUesr.lastName,
+        name: newUesr.name,
         email: newUesr.email,
         isAdmin: newUesr.isAdmin,
         _id: newUesr._id,
@@ -72,6 +70,7 @@ exports.register = async (req, res) => {
 
 exports.allUsers = async (req, res) => {
   const { email } = req.query;
+  console.log(req.query);
   try {
     const user = await User.findOne({ email: email, isAdmin: true });
     if ((user.isAdmin = true)) {
