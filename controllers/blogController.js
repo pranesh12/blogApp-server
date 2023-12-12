@@ -41,6 +41,7 @@ exports.createBlog = async (req, res) => {
 
 exports.updateBlog = async (req, res) => {
   const { id } = req.params;
+  const { author, title, content, image, category, readtime } = req.body;
   try {
     const blog = await Blog.findByIdAndUpdate({ _id: id }, req.body, {
       new: true,
