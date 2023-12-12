@@ -85,10 +85,11 @@ exports.allUsers = async (req, res) => {
 };
 
 exports.deleteUser = async (req, res) => {
-  const { email } = req.query;
+  const { email, id } = req.query;
   try {
     const user = await User.findOne({ email: email, isAdmin: true });
     if ((user.isAdmin = true)) {
+      await User.findOneAndDelete({ _id: id });
     }
   } catch (err) {
     res.json({ message: "unsuccessful" });
