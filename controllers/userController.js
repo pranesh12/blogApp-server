@@ -70,7 +70,6 @@ exports.register = async (req, res) => {
 
 exports.allUsers = async (req, res) => {
   const { email } = req.query;
-  console.log(req.query);
   try {
     const user = await User.findOne({ email: email, isAdmin: true });
     if ((user.isAdmin = true)) {

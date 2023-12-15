@@ -34,7 +34,6 @@ exports.createBlog = async (req, res) => {
 
     res.status(201).json({ message: "Blog Created Successfully" });
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 };
