@@ -18,8 +18,8 @@ app.use(cors());
 app.use("/", userRouter);
 app.use("/blogs", blogRouter);
 
-const uri = `mongodb+srv://${process.env.USER_NAME}:${process.env.DATA_BASE_PASS}@cluster0.vebeiel.mongodb.net/${process.env.DATA_BASE_NAME}?retryWrites=true&w=majority`;
-mongoose.connect(uri, {
+const baseUrl = `mongodb+srv://${process.env.USER_NAME}:${process.env.DATA_BASE_PASS}@cluster0.vebeiel.mongodb.net/${process.env.DATA_BASE_NAME}?retryWrites=true&w=majority`;
+mongoose.connect(baseUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
