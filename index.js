@@ -15,6 +15,9 @@ app.use(cors());
 
 //usign Router
 
+app.get("/", (req, res) => {
+  res.send("Hello welcome new Dawn api");
+});
 app.use("/", userRouter);
 app.use("/blogs", blogRouter);
 
